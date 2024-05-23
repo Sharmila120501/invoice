@@ -1,0 +1,99 @@
+<section class="flex  bg-cover bg-center mt-16">
+    <div class="w-1/2  bg-black bg-opacity-50">
+    </div>
+        <div class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
+            <div class="w-full  h-screen backdrop-blur-lg bg-white   space-y-10 p-10 text-black">
+                <div class="flex gap-8">
+                    <button type="button" (click)="sharmi.emit(false)"
+                        class=" rounded-md p-2 inline-flex items-center  text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    </button>
+                    <h1 class="text-2xl font-bold font-serif mt-2">COMPANY INFORMATION</h1>
+                </div>
+                <hr>
+                <div class="container mx-auto ">
+                    <div class="flex justify-center mt-10 w-full">
+                        <form  class="w-full mx-auto mt-3"[formGroup]="AddCompany">
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Company Name</label>
+                                    <input type="text" formControlName="comName" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="AddCompany.get('comName')?.hasError('pattern') && AddCompany.get('comName')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddCompany.get('comName')?.hasError('required') && AddCompany.get('comName')?.touched" class="text-red-600">Company Name is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Phone Number</label>
+                                    <input type="text" formControlName="phoneNumber" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                   
+                                    <small *ngIf="AddCompany.get('phoneNumber')?.hasError('pattern') && AddCompany.get('phoneNumber')?.touched" class="text-red-600">Invalid pattern, only allow 10 numbers</small>
+                                    <small *ngIf="AddCompany.get('phoneNumber')?.hasError('required') && AddCompany.get('phoneNumber')?.touched" class="text-red-600">Phone Number is required.</small>
+                                </div>                        
+                            </div>
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Email</label>
+                                    <input type="text" formControlName="email"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="AddCompany.get('email')?.hasError('pattern') && AddCompany.get('email')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddCompany.get('email')?.hasError('required') && AddCompany.get('email')?.touched" class="text-red-600">email is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">GST Number</label>
+                                    <input type="text" formControlName="gst" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="AddCompany.get('gst')?.hasError('pattern') && AddCompany.get('gst')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddCompany.get('gst')?.hasError('required') && AddCompany.get('gst')?.touched" class="text-red-600">GST is required.</small>
+                                </div>
+                            </div> 
+                                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                    <div>
+                                        <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Pan Number</label>
+                                        <input type="text" formControlName="panNum"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                        <small *ngIf="AddCompany.get('panNum')?.hasError('pattern') && AddCompany.get('panNum')?.touched" class="text-red-600">Invalid pattern, </small>
+                                        <small *ngIf="AddCompany.get('panNum')?.hasError('required') && AddCompany.get('panNum')?.touched" class="text-red-600">Pannumber is required.</small>
+                                    </div>
+                                    <div>
+                                        <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Address 1</label>
+                                        <input type="text" formControlName="add1" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                        <small *ngIf="AddCompany.get('add1')?.hasError('pattern') && AddCompany.get('add1')?.touched" class="text-red-600">Invalid pattern.</small>
+                                        <small *ngIf="AddCompany.get('add1')?.hasError('required') && AddCompany.get('add1')?.touched" class="text-red-600">Address is required.</small>
+                                    </div> 
+                                </div>   
+                                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                        <div>
+                                            <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Address 2</label>
+                                            <input type="text" formControlName="add2"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                            <small *ngIf="AddCompany.get('add2')?.hasError('pattern') && AddCompany.get('add2')?.touched" class="text-red-600">Invalid pattern.</small>
+                                            <small *ngIf="AddCompany.get('add2')?.hasError('required') && AddCompany.get('add2')?.touched" class="text-red-600">Address is required.</small>
+                                        </div>
+                                        <div>
+                                            <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">City</label>
+                                            <input type="text" formControlName="city" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                            <small *ngIf="AddCompany.get('city')?.hasError('pattern') && AddCompany.get('city')?.touched" class="text-red-600">Invalid pattern.</small>
+                                            <small *ngIf="AddCompany.get('city')?.hasError('required') && AddCompany.get('city')?.touched" class="text-red-600">City is required.</small>
+                                        </div>  
+                                     </div>  
+                                     <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                        <div>
+                                            <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">State</label>
+                                            <input type="text" formControlName="state"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                            <small *ngIf="AddCompany.get('state')?.hasError('pattern') && AddCompany.get('state')?.touched" class="text-red-600">Invalid pattern.</small>
+                                            <small *ngIf="AddCompany.get('state')?.hasError('required') && AddCompany.get('state')?.touched" class="text-red-600">State is required.</small>
+                                        </div>
+                                        <div>
+                                            <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Pincode</label>
+                                            <input type="text" formControlName="pinCode" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                            <small *ngIf="AddCompany.get('pinCode')?.hasError('pattern') && AddCompany.get('pinCode')?.touched" class="text-red-600">Invalid pattern, only allow 6 digits .</small>
+                                            <small *ngIf="AddCompany.get('pinCode')?.hasError('required') && AddCompany.get('pinCode')?.touched" class="text-red-600">Pincode is required.</small>
+                                        </div>                        
+                                    </div>                       
+                            <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3" (click)="company(AddCompany.value)" >Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-}
+  profile: boolean = false; 
+  toggleSetting() {
+    this.profile = !this.profile;
+  }
+  signOut(){
+    sessionStorage.clear();
+  }
+  }
+

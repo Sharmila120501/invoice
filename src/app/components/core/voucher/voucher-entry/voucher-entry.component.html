@@ -1,0 +1,89 @@
+<section class="flex  bg-cover bg-center mt-16">
+  <div class="w-1/2  bg-black bg-opacity-50">
+  </div>
+      <div class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
+          <div class="w-full   backdrop-blur-lg bg-white   space-y-10 p-10 text-black">
+              <div class="flex gap-8">
+                  <button type="button" (click)="close.emit(false)"
+                      class=" rounded-md p-2 inline-flex items-center  text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span class="sr-only">Close menu</span>
+                      <svg class="h-6 w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                      stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  </button>
+                  <h1 class="text-2xl font-bold font-serif mt-2">Voucher Entry</h1>
+              </div>
+              <hr>
+              <div class="container mx-auto ">
+                  <div class="flex justify-center mt-10 w-full">
+                      <form  class="w-full mx-auto mt-3">
+                          <div class="grid gap-6 mb-6 md:grid-cols-2">
+                            
+                              <div>
+                                <label for="countries" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-black font-serif">Select an option</label>
+                                <select id="select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                  <option value="US">select</option>
+                                  <option value="topay">To Pay</option>
+                                  <option value="toreceive">To Receive</option>
+                                </select>
+                                 
+                                
+                              </div> 
+                              <div>
+                                <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Select Vendor Name</label>
+                                <input type="search" formControlName="comName" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                               
+                            </div>                       
+                          </div>
+                          <div class="grid gap-6 mb-6 md:grid-cols-2">
+                            <div>
+                              <label for="countries" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-black font-serif">Select Debit/Credit</label>
+                              <select id="select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="US">select</option>
+                                <option value="cr">Credit</option>
+                                <option value="db">Debit</option>
+                              </select>
+                               
+                                
+                            </div> 
+                            <div>
+                              <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Enter Amount</label>
+                              <input type="number" formControlName="comName" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                             
+                          </div>     
+                          </div> 
+                              <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                  <label for="countries" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-black font-serif">ToWards</label>
+                                  <select id="select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="">select</option>
+                                    <option value="US">Electric City Bill</option>
+                                    <option value="cr">Rent</option>
+                                    <option value="db">Printing</option>
+                                  </select>
+                                </div> 
+                                <div>
+                                  <label for="countries" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-black font-serif">Account Head</label>
+                                  <select id="select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="">select</option>
+                                    <option value="PO1">Purchase</option>
+                                    <option value="PO2">Sales</option>
+                                    <option value="PO3">Stationary</option>
+                                    <option value="PO4">Travel</option>
+                                  </select>
+                                    
+                                </div> 
+                              </div > 
+                              <h1 class="font-serif font-semibold">Payment</h1>
+                              <section>
+                                <app-payment></app-payment>
+                              </section>                       
+                          <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3" >Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+</section>

@@ -1,0 +1,39 @@
+<section class="h-screen bg-gray-100 ml-64">
+    <div class="bg-blue-500 mt-5 rounded-md p-4">
+        <div>
+        <h1 class="font-serif flex justify-center font-semibold">
+            Enjoy customizable templates, transaction reports, and premium support! 🌟🌟🌟
+        </h1>
+    </div>
+    </div>
+    <section class="mt-5 bg-white  rounded-md ">
+        <div class="flex justify-between items-center mx-3 ">
+            <h1 class="font-serif font-semibold text-2xl flex gap-3">
+                Transaction
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ff05d1" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
+            </h1>
+            <div class="flex gap-4 mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Expenses Categories</button>
+                <button *ngIf="!isvalue" (click)="openForm()" class="bg-green-500 text-white px-4 py-2 rounded-md">Create Expenses</button>
+            </div>
+        </div>
+        <div class="flex gap-4 font-serif mt-4">
+            <button  class=" text-gray-800 px-4 py-2 rounded-md" >All Transactions</button>
+            <button  class=" text-gray-800 px-4 py-2 rounded-md" >Pending</button>
+            <button  class=" text-gray-800 px-4 py-2 rounded-md" >Paid</button>
+            <button  class=" text-gray-800 px-4 py-2 rounded-md" >Delete</button>
+        </div>
+        <hr>
+        <section class="mt-4">
+            <app-transactio ></app-transactio>
+        </section>
+    </section>
+</section>
+
+<section *ngIf="isvalue"
+      class="absolute left-0 right-0 top-0 z-50">
+    <app-voucher-entry (close)="close($event)"></app-voucher-entry>
+</section>
+
+   
+

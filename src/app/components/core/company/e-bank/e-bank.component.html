@@ -1,0 +1,75 @@
+
+<section class="flex  bg-cover bg-center  ">
+    <div class="w-1/2  bg-black bg-opacity-50">
+  
+    </div>
+    <div
+        class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
+        <div
+            class="w-full  overflow-y-scroll h-screen backdrop-blur-lg bg-gray-800 bg-opacity-30  space-y-10 p-10 text-black">
+            <!-- <div class="p-4 rounded-lg">
+                <img src="https://floatui.com/logo.svg" width="300" class="lg:hidden" />
+  
+            </div> -->
+            <!-- component -->
+            <div class="flex gap-8">
+                <button type="button" (click)="lav.emit(false)"
+                    class=" rounded-md p-2 inline-flex items-center justify-center text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+  
+                </button>
+                <h1 class="text-2xl font-bold mb-6">Bank Form</h1>
+            </div>
+            <div class="container mx-auto ">
+  
+              <div class="flex justify-center mt-10 w-full">
+                <a class="block max-w-2xl w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-white dark:border-gray-700 ">
+                    <!-- <h1 class="font-extrabold text-blue-600 font-serif justify-center text-center mt-5 text-2xl">Company Details</h1> -->
+                    <hr>
+                    <form  class="max-w-md mx-auto mt-3" [formGroup]="editBank">
+                      
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Bank Id : {{ _bankDetails?.bankId }}</label>
+                                <!-- <input type="text" formControlName="bankId" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> -->
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Account No</label>
+                                <input type="text" formControlName="accNo" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Confirm Account Number</label>
+                                <input type="text" formControlName="confirmAccNo" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">IFSC Code</label>
+                                <input type="text" formControlName="ifsc" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Bank Name</label>
+                                <input type="text" formControlName="bankName" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Branch Name</label>
+                                <input type="text" formControlName="branchName" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            
+                            
+                            <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3"   (click)="save(editBank.value)">Save&Update</button>
+                            <div class="mt-3">
+
+                            </div>
+                     </form>   
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </section>
+

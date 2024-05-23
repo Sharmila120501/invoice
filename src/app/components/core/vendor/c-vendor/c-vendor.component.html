@@ -1,0 +1,322 @@
+<section class="flex bg-cover bg-center">
+    <div class="w-1/2 bg-black bg-opacity-50"></div>
+    <div
+      class="flex-1 flex items-end w-1/2 bg-white bg-opacity-60 justify-end space-x-20 p-100 duration-800 animate-slide-in-right"
+    >
+      <div
+        class="w-full overflow-y-scroll h-screen backdrop-blur-lg bg-gray-800 bg-opacity-30 space-y-10 p-10 text-black"
+      >
+        <div class="flex gap-8">
+          <button
+            type="button"
+            (click)="sharmi.emit(false)"
+            class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-red-600 hover:text-gray-5 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+          >
+            <span class="sr-only">Close menu</span>
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <h1 class="text-2xl font-bold mb-6">Vendor Information</h1>
+        </div>
+        <div class="container mx-auto">
+          <div class="flex justify-center mt-10 w-full">
+            <a
+              class="block max-w-2xl w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            >
+              <h1
+                class="font-extrabold text-blue-600 font-serif justify-center text-center mt-5 text-2xl"
+              >
+                Add Vendor Details
+              </h1>
+              <hr />
+              <form class="max-w-md mx-auto mt-3" [formGroup]="addVendorForm">
+                <div class="flex justify-between items-center mb-2">
+                  <h1 class="sub-title font-serif font-medium">Basic Details</h1>
+                  <h1 class="sub-title font-serif font-medium">Link Customer</h1>
+                </div>
+                <hr />
+                <div class="grid grid-cols-6 justify-between gap-4">
+                  <!-- <div class="col-span-6 mb-5"> -->
+                    <!-- <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Id</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="companyId"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Aditya"
+                    />
+                    <small *ngIf="addVendorForm.get('vendorName')?.hasError('pattern') && addVendorForm.get('vendorName')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('vendorName')?.hasError('required') && addVendorForm.get('vendorName')?.touched" class="text-red-500">Name is required.</small>
+                 
+                  </div> -->
+                  <div class="col-span-6 mb-5">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Name</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="vendorName"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Aditya"
+                    />
+                    <small *ngIf="addVendorForm.get('vendorName')?.hasError('pattern') && addVendorForm.get('vendorName')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('vendorName')?.hasError('required') && addVendorForm.get('vendorName')?.touched" class="text-red-500">Name is required.</small>
+                 
+                  </div>
+                  <div class="col-span-3 mb-5">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Phone</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="phoneNumber"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="9876543210"/>
+                      <small *ngIf="addVendorForm.get('phoneNumber')?.hasError('pattern') && addVendorForm.get('phoneNumber')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('phoneNumber')?.hasError('required') && addVendorForm.get('phoneNumber')?.touched" class="text-red-500">Phone is required.</small>
+                  </div>
+                  <div class="col-span-3">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Email</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="email"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="abc@gmail.com"/>
+                    <small *ngIf="addVendorForm.get('email')?.hasError('pattern') && addVendorForm.get('email')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('email')?.hasError('required') && addVendorForm.get('email')?.touched" class="text-red-500">Email is required.</small>
+                  </div>
+                </div>
+                <hr />
+                <div class="flex justify-between items-center mb-2">
+                  <h1 class="sub-title font-serif font-semibold">
+                    Company Details
+                  </h1>
+                </div>
+                <div class="grid grid-cols-6 justify-between gap-4">
+                  <div class="col-span-3">
+                    <label
+                      for=""
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Company Name</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="companyName"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="ABC Technologies"
+                    />
+                    <small *ngIf="addVendorForm.get('companyName')?.hasError('pattern') && addVendorForm.get('companyName')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('companyName')?.hasError('required') && addVendorForm.get('companyName')?.touched" class="text-red-500">Company Name is required.</small>
+                  </div>
+                  <div class="col-span-3">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >GST IN</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="gst"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="22ABCDE4567G7G"
+                    />
+                    <small *ngIf="addVendorForm.get('gst')?.hasError('pattern') && addVendorForm.get('gst')?.touched" class="text-red-500">Invalid pattern.</small>
+                    <small *ngIf="addVendorForm.get('gst')?.hasError('required') && addVendorForm.get('gst')?.touched" class="text-red-500">GST is required.</small>
+                  </div>
+                  <div class="col-span-6">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                      >Address 1</label
+                    >
+                    <div class="flex gap-4 mb-4">
+                      <div class="w-1/2">
+                        <input
+                          type="text"
+                          formControlName="add1"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Address 1"
+                        />
+                        <small *ngIf="addVendorForm.get('add1')?.hasError('pattern') && addVendorForm.get('add1')?.touched" class="text-red-500">Invalid pattern.</small>
+                        <small *ngIf="addVendorForm.get('add1')?.hasError('required') && addVendorForm.get('add1')?.touched" class="text-red-500">Address is required.</small>
+                      </div>
+                      <div class="w-1/2">
+                        <input
+                          type="text"
+                          formControlName="add2"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Address 2"
+                        />
+                        <small *ngIf="addVendorForm.get('add2')?.hasError('pattern') && addVendorForm.get('add2')?.touched" class="text-red-500">Invalid pattern.</small>
+                        <small *ngIf="addVendorForm.get('add2')?.hasError('required') && addVendorForm.get('add2')?.touched" class="text-red-500">Address is required.</small>
+                      </div>
+                    </div>
+                    <div class="flex gap-4">
+                      <div class="w-1/2">
+                        <label
+                          for="email"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                          >City</label
+                        >
+                        <input
+                          type="text"
+                          formControlName="city"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="city"
+                        />
+                        <small *ngIf="addVendorForm.get('city')?.hasError('pattern') && addVendorForm.get('city')?.touched" class="text-red-500">Invalid pattern.</small>
+                        <small *ngIf="addVendorForm.get('city')?.hasError('required') && addVendorForm.get('city')?.touched" class="text-red-500">City is required.</small>
+                      </div>
+                      <div class="w-1/2">
+                        <label
+                          for="email"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                          >State</label
+                        >
+                        <input
+                          type="text"
+                          formControlName="state"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="State"
+                        />
+                        <small *ngIf="addVendorForm.get('state')?.hasError('pattern') && addVendorForm.get('state')?.touched" class="text-red-500">Invalid pattern.</small>
+                        <small *ngIf="addVendorForm.get('state')?.hasError('required') && addVendorForm.get('state')?.touched" class="text-red-500">State is required.</small>
+                      </div>
+                    </div>
+                    <div class="flex mr-4 mt-4">
+                      <div class="w-1/2">
+                        <label
+                          for="email"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white font-serif"
+                          >Pincode</label
+                        >
+                        <input
+                          type="text"
+                          formControlName="pinCode"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Pincode"
+                        />
+                        <small *ngIf="addVendorForm.get('pinCode')?.hasError('pattern') && addVendorForm.get('pinCode')?.touched" class="text-red-500">Invalid pattern.</small>
+                        <small *ngIf="addVendorForm.get('pinCode')?.hasError('required') && addVendorForm.get('pinCode')?.touched" class="text-red-500">Pincode is required.</small>
+                      </div>
+                    </div>
+                    <hr class="mt-2" />
+                    <!-- <div class="flex justify-between items-center mb-2">
+                      <h1 class="sub-title font-serif text-gray-400">
+                        Optional Details
+                      </h1>
+                      <hr />
+                    </div>
+                    <div class="col-span-6 my-2 gap-3">
+                      <label class="label font-serif font-semibold"
+                        >Opening Balance</label
+                      >
+                      <div class="flex my-4">
+                        <div class="flex items-center me-4">
+                          <input
+                            type="radio"
+                            formControlName="balanceType"
+                            value="debit"
+                            id="debit-radio"
+                          />
+                          <label for="debit-radio">Debit</label>
+  
+                          <input
+                            type="radio"
+                            formControlName="balanceType"
+                            value="credit"
+                            id="credit-radio"
+                          />
+                          <label for="credit-radio">Credit</label>
+                        </div>
+                      </div>
+                        <div class="col-span-6">
+                          <div
+                          *ngIf="
+                            addVendorForm.get('balanceType')?.value === 'debit'
+                          "
+                        >
+                          <input
+                            type="text"
+                            formControlName="debit"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="debitAmount"
+                          />
+                          <small *ngIf="addVendorForm.get('debit')?.hasError('pattern') && addVendorForm.get('debit')?.touched" class="text-red-500">Invalid pattern.</small>
+                          <small *ngIf="addVendorForm.get('debit')?.hasError('required') && addVendorForm.get('debit')?.touched" class="text-red-500">Debit amount is required.</small>
+                        </div>
+                        <div
+                          *ngIf="
+                            addVendorForm.get('balanceType')?.value === 'credit'
+                          "
+                        >
+                          <input
+                            type="text"
+                            formControlName="credit"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="CreditAmount"
+                          />
+                          <small *ngIf="addVendorForm.get('credit')?.hasError('pattern') && addVendorForm.get('credit')?.touched" class="text-red-500">Invalid pattern.</small>
+                          <small *ngIf="addVendorForm.get('credit')?.hasError('required') && addVendorForm.get('credit')?.touched" class="text-red-500">Credit amount is required.</small>
+                        </div>
+                        </div>
+                      
+                      </div>
+                   
+                    <div class="col-span-6">
+                      <label class="lable font-serif">Balance</label>
+                      <input
+                        type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder=""
+                        disabled
+                      />
+                    </div>
+                    <div class="col-span-6">
+                      <label class="lable font-serif">Linked Customer</label>
+                      <input
+                        type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder=""
+                        disabled
+                      />
+                    </div> -->
+                    <button
+                      class="px-3 py-1 rounded bg-blue-600 text-white font-serif font-semibold mt-3"
+                   (click)="vendor(addVendorForm.value)">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

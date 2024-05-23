@@ -1,0 +1,64 @@
+<section class="flex  bg-cover bg-center mt-16">
+    <div class="w-1/2  bg-black bg-opacity-50">
+    </div>
+        <div class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
+            <div class="w-full  h-screen backdrop-blur-lg bg-white   space-y-10 p-10 text-black">
+                <div class="flex gap-8">
+                    <button type="button" (click)="sharmi.emit(false)"
+                        class=" rounded-md p-2 inline-flex items-center  text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    </button>
+                    <h1 class="text-2xl font-bold font-serif mt-2">BANK INFORMATION</h1>
+                </div>
+                <hr>
+                <div class="container mx-auto ">
+                    <div class="flex justify-center mt-10 w-full">
+                        <form  class="w-full mx-auto mt-3" [formGroup]="AddBank">
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Account Number</label>
+                                    <input type="text" formControlName="accNo" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="AddBank.get('accNo')?.hasError('pattern') && AddBank.get('accNo')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddBank.get('accNo')?.hasError('required') && AddBank.get('accNo')?.touched" class="text-red-600">Name is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Confirm Account No</label>
+                                    <input type="text" formControlName="confirmAccNo" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small class="text-red-600" *ngIf="AddBank.hasError('mismatch') && AddBank.get('confirmAccNo')?.touched" class="text-red-600">Account numbers do not match!</small>
+                                    <small *ngIf="AddBank.get('confirmAccNo')?.hasError('pattern') && AddBank.get('confirmAccNo')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddBank.get('confirmAccNo')?.hasError('required') && AddBank.get('confirmAccNo')?.touched" class="text-red-600">Name is required.</small>
+                                </div>                        
+                            </div>
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">IFSC Code</label>
+                                    <input type="text" formControlName="ifsc" (change)="fetchifsc(AddBank.value)" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="AddBank.get('ifsc')?.hasError('pattern') && AddBank.get('ifsc')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddBank.get('ifsc')?.hasError('required') && AddBank.get('ifsc')?.touched" class="text-red-600">Name is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Bank Name</label>
+                                    <input type="text" formControlName="bankName" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small class="text-red-600" *ngIf="AddBank.hasError('bankName') && AddBank.get('bankName')?.touched" class="text-red-600">Account numbers do not match!</small>
+                                    <small *ngIf="AddBank.get('bankName')?.hasError('pattern') && AddBank.get('bankName')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="AddBank.get('bankName')?.hasError('required') && AddBank.get('bankName')?.touched" class="text-red-600">Name is required.</small>
+                                </div>                        
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Branch name </label>
+                                <input type="text" formControlName="branchName" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                <small *ngIf="AddBank.get('branchName')?.hasError('pattern') && AddBank.get('branchName')?.touched" class="text-red-600">Invalid pattern.</small>
+                                <small *ngIf="AddBank.get('branchName')?.hasError('required') && AddBank.get('branchName')?.touched" class="text-red-600">Name is required.</small>
+                            </div>
+                            <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3" (click)="bank(AddBank.value)" >Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
