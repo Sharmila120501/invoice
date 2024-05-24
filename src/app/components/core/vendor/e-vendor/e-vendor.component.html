@@ -1,97 +1,65 @@
-<section class="flex  bg-cover bg-center  ">
+<section class="flex  bg-cover bg-center mt-16">
     <div class="w-1/2  bg-black bg-opacity-50">
-  
     </div>
-    <div
-        class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
-        <div
-            class="w-full  overflow-y-scroll h-screen backdrop-blur-lg bg-gray-800 bg-opacity-30  space-y-10 p-10 text-black">
-            <!-- <div class="p-4 rounded-lg">
-                <img src="https://floatui.com/logo.svg" width="300" class="lg:hidden" />
-  
-            </div> -->
-            <!-- component -->
-            <div class="flex gap-8">
-                <button type="button" (click)="priya.emit(false)"
-                    class=" rounded-md p-2 inline-flex items-center justify-center text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span class="sr-only">Close menu</span>
-                    <!-- Heroicon name: outline/x -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        <div class="flex-1 flex items-end  w-1/2  bg-white bg-opacity-60 justify-end  space-x-20 p-100  duration-800 animate-slide-in-right ">
+            <div class="w-full  h-screen backdrop-blur-lg bg-white   space-y-10 p-10 text-black">
+                <div class="flex gap-8">
+                    <button type="button" (click)="priya.emit(false)"
+                        class=" rounded-md p-2 inline-flex items-center  text-black  hover:text-red-600 hover:text-gray-5  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
-  
-                </button>
-                <h1 class="text-2xl font-bold mb-6">Vendor Update</h1>
+                    </button>
+                    <h1 class="text-2xl font-bold font-serif mt-2">VENDOR INFORMATION</h1>
+                </div>
+                <hr>
+                <div class="container mx-auto ">
+                    <div class="flex justify-center mt-10 w-full">
+                        <form  class="w-full mx-auto mt-3" [formGroup]="editvendor">
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Vendor Name</label>
+                                    <input type="text" formControlName="accNo" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="editvendor.get('accNo')?.hasError('pattern') && editvendor.get('accNo')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="editvendor.get('accNo')?.hasError('required') && editvendor.get('accNo')?.touched" class="text-red-600">Name is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Phone Number</label>
+                                    <input type="text" formControlName="confirmAccNo" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small class="text-red-600" *ngIf="editvendor.hasError('mismatch') && editvendor.get('confirmAccNo')?.touched" class="text-red-600">Account numbers do not match!</small>
+                                    <small *ngIf="editvendor.get('confirmAccNo')?.hasError('pattern') && editvendor.get('confirmAccNo')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="editvendor.get('confirmAccNo')?.hasError('required') && editvendor.get('confirmAccNo')?.touched" class="text-red-600">Name is required.</small>
+                                </div>                        
+                            </div>
+                            <div>
+                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-black font-serif font-semibold">Email</label>
+                                <input type="text" formControlName="branchName" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                <small *ngIf="editvendor.get('branchName')?.hasError('pattern') && editvendor.get('branchName')?.touched" class="text-red-600">Invalid pattern.</small>
+                                <small *ngIf="editvendor.get('branchName')?.hasError('required') && editvendor.get('branchName')?.touched" class="text-red-600">Name is required.</small>
+                            </div>
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="first_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">IFSC Code</label>
+                                    <input type="text" formControlName="ifsc" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small *ngIf="editvendor.get('ifsc')?.hasError('pattern') && editvendor.get('ifsc')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="editvendor.get('ifsc')?.hasError('required') && editvendor.get('ifsc')?.touched" class="text-red-600">Name is required.</small>
+                                </div>
+                                <div>
+                                    <label for="last_name" class="block mb-2 text-sm  text-gray-900 dark:text-black font-serif font-semibold">Bank Name</label>
+                                    <input type="text" formControlName="bankName" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "  />
+                                    <small class="text-red-600" *ngIf="editvendor.hasError('bankName') && editvendor.get('bankName')?.touched" class="text-red-600">Account numbers do not match!</small>
+                                    <small *ngIf="editvendor.get('bankName')?.hasError('pattern') && editvendor.get('bankName')?.touched" class="text-red-600">Invalid pattern.</small>
+                                    <small *ngIf="editvendor.get('bankName')?.hasError('required') && editvendor.get('bankName')?.touched" class="text-red-600">Name is required.</small>
+                                </div>                        
+                            </div>
+                            
+                            <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3" (click)="save(editvendor.value)" >Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="container mx-auto ">
-  
-              <div class="flex justify-center mt-10 w-full">
-                <a class="block max-w-2xl w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h1 class="font-extrabold text-blue-600 font-serif justify-center text-center mt-5 text-2xl"></h1>
-                    <hr>
-                    <form  class="max-w-md mx-auto mt-3" [formGroup]="editvendor">
-                      
-                            <!-- <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Id</label>
-                                <input type="text" formControlName="id" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Company Id</label>
-                                <input type="text" formControlName="companyId" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Vendor Id</label>
-                                <input type="text" formControlName="vendorId" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div> -->
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Vendor Name</label>
-                                <input type="text" formControlName="vendorName" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm  text-gray-900 dark:text-white font-serif font-semibold">Phone Number</label>
-                                <input type="text" formControlName="phoneNumber" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Email</label>
-                                <input type="text" formControlName="email" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">GSTIN</label>
-                                <input type="text" formControlName="gst" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Company Name</label>
-                                <input type="text" formControlName="companyName" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Address 1</label>
-                                <input type="text" formControlName="add1" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Address 2</label>
-                                <input type="text" formControlName="add2" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">City</label>
-                                <input type="text" formControlName="city" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">State</label>
-                                <input type="text" formControlName="state" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="small-input" class="block mb-2 text-sm text-gray-900 dark:text-white font-serif font-semibold">Pincode</label>
-                                <input type="text" formControlName="pinCode" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-3"   (click)="save(editvendor.value)">Save&Update</button>
-                     </form>   
-                </a>
-            </div>
-          </div>
         </div>
-    </div>
-  </section>
-
-
+</section>
